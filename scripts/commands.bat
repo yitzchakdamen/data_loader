@@ -6,7 +6,8 @@ oc apply -f mysql-service.yaml
 
 oc apply -f sql-pvs.yaml
 
-docker build -t mypostgres .
+docker build -t data_loader .
+docker tag data_loader yitzchakdamen/data_loadr
 
 
 
