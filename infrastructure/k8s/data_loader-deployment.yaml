@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-loader
+spec:
+  selector:
+    matchLabels:
+      app: data-loader
+  template:
+    metadata:
+      labels:
+        app: data-loader
+    spec:
+      containers:
+      - name: data-loader
+        image: yitzchakdamen/data_loadr
+        env:
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MYSQL_DATABASE
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name:  database-connection-variables-secret
+              key: DB_PASSWORD
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MYSQL_USER
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name:  database-connection-variables-secret
+              key: DB_PASSWORD
+        ports:
+        - containerPort: 8888
+
