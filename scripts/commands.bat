@@ -6,5 +6,7 @@ oc apply -f mysql-service.yaml
 
 oc apply -f sql-pvs.yaml
 
+docker build -t mypostgres .
+
 
 
