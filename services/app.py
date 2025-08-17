@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from data_loader.data_loader import DataLoader
+from services.data_loader.data_loader_mysql import DataLoader
 import os
 
 app = FastAPI()

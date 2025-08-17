@@ -1,5 +1,5 @@
-mysql --user=user --password sql
-password
+-- mysql -u user -p mysql
+-- password
 
 CREATE TABLE data  (ID  INT NOT NULL , first_name VARCHAR(120) NOT NULL, last_name VARCHAR(120), PRIMARY KEY (ID));
 
