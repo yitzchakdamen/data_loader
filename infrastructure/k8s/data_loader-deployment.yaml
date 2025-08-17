@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: data-loader
-        image: yitzchakdamen/data_loadr:v1
+        image: yitzchakdamen/data_loadr:v2
         imagePullPolicy: Always
         env:
         - name: MYSQL_DATABASE
