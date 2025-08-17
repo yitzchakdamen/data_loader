@@ -13,18 +13,14 @@ spec:
     spec:
       containers:
       - name: data-loader
-        image: yitzchakdamen/data_loadr
+        image: yitzchakdamen/data_loadr:v2
+        imagePullPolicy: Always
         env:
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
               name: database-connection-variables-configmap
               key: MYSQL_DATABASE
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name:  database-connection-variables-secret
-              key: DB_PASSWORD
         - name: MYSQL_USER
           valueFrom:
             configMapKeyRef:
@@ -35,6 +31,17 @@ spec:
             secretKeyRef:
               name:  database-connection-variables-secret
               key: DB_PASSWORD
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: DB_HOST
+        - name: APP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: APP_PORT
         ports:
         - containerPort: 8888
+
 
