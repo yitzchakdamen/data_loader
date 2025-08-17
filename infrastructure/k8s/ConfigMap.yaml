@@ -9,4 +9,5 @@ data:
   DB_HOST: mysql
   MYSQL_USER: user
   MYSQL_DATABASE: mysql
-  # DB_PORT: 3306
+  DB_PORT: '3306'
+  APP_PORT: '8888'

@@ -1,7 +1,6 @@
 mysql --user=user --password sql
 password
 
-
 CREATE TABLE data  (ID  INT NOT NULL , first_name VARCHAR(120) NOT NULL, last_name VARCHAR(120), PRIMARY KEY (ID));
 
 INSERT INTO data (ID ,first_name ,last_name) VALUES(001, "Yitzchak", "Damen");
