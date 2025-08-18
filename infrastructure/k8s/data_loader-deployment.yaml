@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: data-loader
+  name: data-loader-deployment
 spec:
   selector:
     matchLabels:
@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: data-loader
-        image: yitzchakdamen/data_loadr:v2
+        image: yitzchakdamen/data_loadr:v4.4
         imagePullPolicy: Always
         env:
         - name: MYSQL_DATABASE
@@ -31,16 +31,41 @@ spec:
             secretKeyRef:
               name:  database-connection-variables-secret
               key: DB_PASSWORD
-        - name: DB_HOST
+        - name: MYSQL_HOST
           valueFrom:
             configMapKeyRef:
               name: database-connection-variables-configmap
-              key: DB_HOST
+              key: MYSQL_HOST
         - name: APP_PORT
           valueFrom:
             configMapKeyRef:
               name: database-connection-variables-configmap
               key: APP_PORT
+        - name: MONGO_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MONGO_DATABASE
+        - name: MONGO_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MONGO_HOST
+        - name: MONGO_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MONGO_PORT
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: database-connection-variables-configmap
+              key: MONGO_INITDB_ROOT_USERNAME
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name:  database-connection-variables-secret
+              key: MONGO_INITDB_ROOT_PASSWORD
         ports:
         - containerPort: 8888
 

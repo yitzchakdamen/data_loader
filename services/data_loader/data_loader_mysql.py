@@ -9,19 +9,19 @@ class DataLoader:
     
     def __init__(self) -> None:
         """Initialize database connection parameters."""
-        self.DB_HOST:str = os.getenv("DB_HOST") or ""
+        self.MYSQL_HOST:str = os.getenv("MYSQL_HOST") or ""
         self.MYSQL_DATABASE:str = os.getenv("MYSQL_DATABASE") or ""
         self.MYSQL_USER:str = os.getenv("MYSQL_USER") or ""
-        self.DB_PASSWORD:str = os.getenv("MYSQL_PASSWORD") or ""
-        
-        logger.debug(f"Database connection parameters set: DB_HOST:{self.DB_HOST}, MYSQL_DATABASE:{self.MYSQL_DATABASE}, MYSQL_USER:{self.MYSQL_USER}, MYSQL_PASSWORD:{self.DB_PASSWORD}")
+        self.MYSQL_PASSWORD:str = os.getenv("MYSQL_PASSWORD") or ""
+
+        logger.debug(f"Database connection parameters set: MYSQL_HOST:{self.MYSQL_HOST}, MYSQL_DATABASE:{self.MYSQL_DATABASE}, MYSQL_USER:{self.MYSQL_USER}, MYSQL_PASSWORD:{self.MYSQL_PASSWORD}")
 
     def connector(self):
         """Create a database connection.""" 
         connect = pymysql.connect(
-            host=self.DB_HOST,
+            host=self.MYSQL_HOST,
             user=self.MYSQL_USER,
-            password=self.DB_PASSWORD,
+            password=self.MYSQL_PASSWORD,
             database=self.MYSQL_DATABASE,
             cursorclass=pymysql.cursors.DictCursor)
         

@@ -1,10 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: data-loader
+  name: data-loader-service
+  namespace: yitzchakdamen-dev
+  labels:
+    app: data-loader
 spec:
   selector:
-    app:  data-loader
+    app: data-loader
   ports:
     - port: 8888
       targetPort: 8888
