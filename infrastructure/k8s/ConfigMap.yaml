@@ -6,8 +6,11 @@ metadata:
   labels:
     app: data-loader
 data:
-  DB_HOST: mysql
+  MYSQL_HOST: mysql-service
   MYSQL_USER: user
-  MYSQL_DATABASE: mysql
-  DB_PORT: '3306'
+  MYSQL_DATABASE: mysql-database
+  MONGO_DATABASE: mongo-database
+  MONGO_PORT: '27017'
+  MONGO_HOST: mongo-service
+  MONGO_INITDB_ROOT_USERNAME : mongo
   APP_PORT: '8888'
