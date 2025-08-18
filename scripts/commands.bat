@@ -7,7 +7,7 @@ oc  apply -f ConfigMap.yaml
 ----
 mysql
 
-oc apply -f sql-pvs.yaml
+oc apply -f mysql-pvs.yaml
 oc apply -f mysql-deployment.yaml
 oc apply -f mysql-service.yaml
 
