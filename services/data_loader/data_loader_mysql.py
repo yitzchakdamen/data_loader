@@ -1,7 +1,6 @@
 import os
 import logging
 import pymysql
-import model.data_row as data_row
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
