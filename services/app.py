@@ -39,4 +39,5 @@ if __name__ == "__main__":
         initial_data=[{"username": "admin", "password": "1234"},{"username": "user", "password": "abcd", "email": "user@example.com"}]
     )
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=get_port())
+    uvicorn.run(app, host="0.0.0.0", port=get_port())  
+    
