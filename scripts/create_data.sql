@@ -1,5 +1,11 @@
+
+-- mysql -u root -p
+-- password
+-- ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
 -- mysql -u user -p mysql-database
 -- password
+
 
 CREATE TABLE data  (ID  INT NOT NULL , first_name VARCHAR(120) NOT NULL, last_name VARCHAR(120), PRIMARY KEY (ID));
 

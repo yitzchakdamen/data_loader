@@ -33,11 +33,5 @@ def get_port():
     raise ValueError("Invalid port number")
 
 if __name__ == "__main__":
-    loader = MongoDataLoader()
-    loader.init_data(
-        collection="users",
-        initial_data=[{"username": "admin", "password": "1234"},{"username": "user", "password": "abcd", "email": "user@example.com"}]
-    )
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=get_port())  
-    
